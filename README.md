@@ -48,7 +48,7 @@ yarn add
 | /api/auth/logout/ | POST   | logout user     | Public    |
 -->
 ### My Process
-- [Watch The Step-by-Step Process On My YouTube Channel](https://www.youtube.com/@oheneadj)
+- [Watch The Step-by-Step Process On My YouTube Channel](#)
 
 ### Built with
 
