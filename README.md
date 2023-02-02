@@ -20,18 +20,18 @@ A chat app that enables you to collect anonymous feedback built with NodeJs, Exp
 
 ### Links
 
-- Try Anonymous Me: [Anonymous.me](https://quiz-api.vercel.io)
+- Try Anonymous Me: [Anonymous.me](#)
 
 ### Install Dependencies:
 
 ##### Using NPM
 ```shell
-cd quiz-api
+cd anonymous
 npm install
 ```
 ##### Using Yarn
 ```shell
-cd quiz-api
+cd anonymous
 yarn add
 ```
 
@@ -58,7 +58,8 @@ yarn add
 - Mongoose
 - BCrypt
 - JWT Web Token
-- dotenv
+- Dotenv
+- Express Sessions
 
 ### Useful resources
 
