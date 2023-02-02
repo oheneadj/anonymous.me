@@ -36,7 +36,7 @@ yarn add
 ```
 
 #### API endpoints or routes:
-
+<!-- 
 | End Point         | Method | Description     | Access    |
 | ----------------- | ------ | --------------- | --------- |
 | /api/quizzes/     | GET    | get all quizzes | Private   |
@@ -46,7 +46,7 @@ yarn add
 | /api/auth/login/  | POST   | login user      | Public    |
 | /api/auth/signin/ | POST   | create user     | Public    |
 | /api/auth/logout/ | POST   | logout user     | Public    |
-
+-->
 ### My Process
 - [Watch The Step-by-Step Process On My YouTube Channel](https://www.youtube.com/@oheneadj)
 
