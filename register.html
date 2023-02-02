@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./public/styles.css" />
+    <title>Anonymous Me</title>
+  </head>
+  <body>
+    <p class="heading">Create your Anonymous me account</p>
+    <div class="card">
+      <form action="/login">
+        <input type="text" name="name" placeholder="Enter your name" />
+        <input type="email" name="email" placeholder="Enter your email" />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+        />
+        <input
+          type="password"
+          name="confirm-password"
+          placeholder="Confirm your password"
+        />
+        <input type="submit" class="btn" value="Login" name="login-btn" />
+      </form>
+    </div>
+    <p>Already a user? <a href="/login.html">Login</a></p>
+  </body>
+</html>
