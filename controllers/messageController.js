@@ -8,6 +8,7 @@ const getMessages = async (req, res) => {
   // find messages with user id
   const messages = await Message.find({ user: user});
 
+  // check if user has messages
   if(messages){
     res.json(messages);
   }else{
