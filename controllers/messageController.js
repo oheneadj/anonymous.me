@@ -1,54 +1,58 @@
 const Message = require("../models/messageModel");
 const User = require("../models/userModel");
+const asyncHandler = require("express-async-handler");
 
-const getMessages = async (req, res) => {
+
+const getMessages = asyncHandler(async (req, res) => {
   // get user from request parameters
   const user = req.body.user;
 
   // find messages with user id
-  const messages = await Message.find({ user: user});
+  try {
+    const messages = await Message.find({ user: user });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ message: "Invalid User" });
+  }
+  
 
   // check if user has messages
   if(messages){
-    res.json(messages);
+    res.status(200).json(messages);
   }else{
-    res.json({messages:"Messages not found"});
+    res.status(404)
+    throw new Error("No messages found");
   }
   
-};
+});
 
-const createMessage = async (req, res) => {
+const createMessage = asyncHandler(async (req, res) => {
   // get message and user from request body
   const { message, user } = req.body;
 
   // check if message or user isn't empty
   if (!message) {
-    res.status(400).json({ message: "message field cannot be empty" });
+    res.status(400)
+    throw new Error("Message field cannot be empty");
   } else if (!user) {
-    res.status(400).json({ message: "user cannot be empty" });
+    res.status(400)
+    throw new Error("User field cannot be empty");
   }
 
   // check if user exists
     const userExists = await User.findOne({ id: user});
   // add message to database
+
   if(userExists){
-    const data = new Message({
+    const data = await Message.create({
       message,
       user,
     });
-
-    data
-      .save()
-      .then((result) => {
-        res.status(200).json(result);
-      })
-      .catch((error) => {
-        console.log(error);
-        res.status(500).json({ message: "Internal Server Error" });
-      });
+  res.status(200).json(data);
   }else {
-    res.status(400).json({ message: "Cannot find user" });
+    res.status(400)
+    throw new Error("Cannot find user");
   }
-};
+});
 
 module.exports = { getMessages, createMessage };
