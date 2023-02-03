@@ -11,6 +11,12 @@ body {
   font-style: normal;
 }
 
+footer {
+  font-size: 12px;
+  padding-top: 50px;
+  color: #ffffff;
+}
+
 h1 {
   /* Anonymous.Me */
 
