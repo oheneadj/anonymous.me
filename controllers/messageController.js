@@ -2,9 +2,10 @@ const Message = require("../models/messageModel");
 const User = require("../models/userModel");
 
 const getMessages = async (req, res) => {
-  // get user from request prameters
+  // get user from request parameters
   const user = req.body.user;
 
+  // find messages with user id
   const messages = await Message.find({ user: user});
 
   if(messages){
