@@ -5,11 +5,12 @@ const messageSchema = new Schema(
   {
     message: {
       type: String,
-      required: true,
+      required: [true, "Please add a message value"],
     },
     user: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
+      ref:'User'
     },
   },
   { timestamp: true }

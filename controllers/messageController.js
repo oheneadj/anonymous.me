@@ -1,8 +1,17 @@
 const Message = require("../models/messageModel");
+const User = require("../models/userModel");
 
-const getMessages = (req, res) => {
-  const user = req.params.id;
-  res.json({ message: "Created a message" });
+const getMessages = async (req, res) => {
+  const user = req.body.user;
+
+  const messages = await Message.find({ user: user});
+
+  if(messages){
+    res.json(messages);
+  }else{
+    res.json({messages:"Messages not found"});
+  }
+  
 };
 
 const createMessage = async (req, res) => {
@@ -17,22 +26,26 @@ const createMessage = async (req, res) => {
   }
 
   // check if user exists
-
+    const userExists = await User.findOne({ id: user});
   // add message to database
-  const data = new Message({
-    message,
-    user,
-  });
-
-  data
-    .save()
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).json({ message: "Internal Server Error" });
+  if(userExists){
+    const data = new Message({
+      message,
+      user,
     });
+
+    data
+      .save()
+      .then((result) => {
+        res.status(200).json(result);
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(500).json({ message: "Internal Server Error" });
+      });
+  }else {
+    res.status(400).json({ message: "Cannot find user" });
+  }
 };
 
 module.exports = { getMessages, createMessage };
