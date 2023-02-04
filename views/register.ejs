@@ -4,9 +4,13 @@
   <body>
     <p class="heading">Create your Anonymous me account</p>
     <div class="card">
-      <form action="/login">
-        <input type="text" name="name" placeholder="Enter your first name" />
-        <input type="text" name="name" placeholder="Enter your last name" />
+      <form action="/auth/register" method="POST">
+        <input
+          type="text"
+          name="firstname"
+          placeholder="Enter your first name"
+        />
+        <input type="text" name="lastname" placeholder="Enter your last name" />
         <input type="email" name="email" placeholder="Enter your email" />
         <input
           type="password"
