@@ -2,7 +2,10 @@
   "name": "anonymous",
   "version": "1.0.0",
   "description": "an app enables you to receive anonymous feedback",
-  "main": "app.js",
+  "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "repository": "git@github.com:oheneadj/anonymous.me.git",
   "author": "oheneadj <oheneadjei.dev@gmail.com>",
   "license": "MIT",
@@ -22,7 +25,7 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "start": "node app.js",
-    "dev": " nodemon app.js"
+    "start": "node index.js",
+    "dev": " nodemon index.js"
   }
 }
