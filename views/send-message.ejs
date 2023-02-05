@@ -6,7 +6,8 @@
       Your identity is hidden, feel free to express yourself to @username
     </p>
     <div class="card">
-      <form action="/login">
+      <form action="/message" method="POST">
+        <input id="user" type="hidden" name="username" />
         <textarea
           name="message"
           id="message"
@@ -24,8 +25,20 @@
     </div>
     <p>
       Receive anonymous messages from friends?<a href="/register"
-        >Create your account</a
+        > Create your account</a
       >
     </p>
+  </body>
+  <footer class="footer">
+      Design and Developed by
+      <a target="_blank" href="https://oheneadjei.com"> Ohene Adjei</a>
+    </footer>
+    <script>
+      const userInput = document.getElementById("user");
+      const url = window.location.href.split('/');
+      const user = url[url.length - 1];
+      console.log(user);
+      userInput.value = user;
+    </script>
   </body>
 </html>

@@ -2,26 +2,21 @@
 <html lang="en">
   <%- include('../partials/head.ejs') %>
   <body>
+    <h1>Hello <%= name %></h1>
+    <p><%= link %></p>
     <p class="heading">All messages</p>
+    <% if(messages.length > 0) { %> <% messages.forEach(message => { %>
+
     <div class="card">
-      <p class="dark">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam illum
-        itaque minus ducimus nisi, rem optio quos, iure quo provident libero,
-        nostrum officia aut temporibus fuga saepe laborum sunt adipisci.
-      </p>
+      <p class="dark"><%= message.message%></p>
       <span>9:00 pm 23-03-22</span>
     </div>
-    <div class="card">
-      <p class="dark">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam illum
-        itaque minus ducimus nisi, rem optio quos, iure quo provident libero,
-        nostrum officia aut temporibus fuga saepe laborum sunt adipisci.
-      </p>
-      <span>9:00 pm 23-03-22</span>
-    </div>
+    <%}) %> <%}else{%>
+    <p>You havent recieved any messages yet</p>
+    <% } %>
     <p>
       Want to receive more messages?
-      <a href="/share.html">Share your link</a>
+      <a href="/share">Share your link</a>
     </p>
   </body>
 </html>
